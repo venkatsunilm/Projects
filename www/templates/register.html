@@ -1,0 +1,35 @@
+<ion-view title="Register">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <div class="spacer" style="width: 283px; height: 19px;"></div>
+            <ion-list>
+                <label class="item item-input" name="firstname">
+                    <span class="input-label">First name:</span>
+                    <input type="text" placeholder="Enter first name">
+                </label>
+                <label class="item item-input" name="lastname">
+                    <span class="input-label">Last name:</span>
+                    <input type="text" placeholder="Enter last name">
+                </label>
+                <label class="item item-input" name="trakcode">
+                    <span class="input-label">Track code:</span>
+                    <input type="text" placeholder="For live tracking">
+                </label>
+                <label class="item item-input" name="ecn">
+                    <span class="input-label">Phone:</span>
+                    <input type="text" placeholder="Emergency Contact Number">
+                </label>
+            </ion-list>
+            <div class="spacer" style="width: 283px; height: 23px;"></div>
+            <div>
+                <p>
+                    By clicking on
+                    <b>I am good</b> button, i agree to
+                    <b>Terms &amp; Conditions</b> and
+                    <b>Privacy Policy</b>
+                </p>
+            </div>
+        </form>
+        <a ui-sref="trackingSchedule" class="button button-positive button-block icon-right ion-chevron-right button-calm">I am good</a>
+    </ion-content>
+</ion-view>
