@@ -10,7 +10,7 @@ angular.module('app.routes', [])
  .state('menu.home', {
     url: '/home',
     views: {
-      'side-menu21': {
+      'side-menu': {
         templateUrl: 'templates/home.html',
         controller: 'homeCtrl'
       }
@@ -35,11 +35,19 @@ angular.module('app.routes', [])
     controller: 'trackingScheduleCtrl'
   })
 
-  .state('map', {
-    url: '/map',
-    templateUrl: 'templates/map.html',
-    controller: 'mapCtrl'
+  .state('trackingYourselfMap', {
+    // cache: false,
+    url: '/trackingYourselfMap',
+    templateUrl: 'templates/trackingYourselfMap.html',
+    controller: 'trackingYourselfMapCtrl'
   });
 
-$urlRouterProvider.otherwise('/register');
+  // .state('trackingBelovedMap', {
+  //   cache: false,
+  //   url: '/trackingBelovedMap',
+  //   templateUrl: 'templates/trackingBelovedMap.html',
+  //   controller: 'trackingBelovedMapCtrl'
+  // });
+
+$urlRouterProvider.otherwise('/trackingYourselfMap');
 });

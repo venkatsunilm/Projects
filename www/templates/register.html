@@ -1,23 +1,19 @@
 <ion-view title="Register">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <form class="list">
-            <div class="spacer" style="width: 283px; height: 19px;"></div>
+            <div class="spacer" style="width: 283px; height: 10px;"></div>
             <ion-list>
                 <label class="item item-input" name="firstname">
                     <span class="input-label">First name:</span>
-                    <input type="text" placeholder="Enter first name">
+                    <input type="text" placeholder="Enter first name" ng-model="register.firstname">
                 </label>
                 <label class="item item-input" name="lastname">
                     <span class="input-label">Last name:</span>
-                    <input type="text" placeholder="Enter last name">
+                    <input type="text" placeholder="Enter last name" ng-model="register.lastname">
                 </label>
                 <label class="item item-input" name="trakcode">
                     <span class="input-label">Track code:</span>
-                    <input type="text" placeholder="For live tracking">
-                </label>
-                <label class="item item-input" name="ecn">
-                    <span class="input-label">Phone:</span>
-                    <input type="text" placeholder="Emergency Contact Number">
+                    <input type="text" placeholder="Enter any 4 digit code for live tracking" ng-model="register.trackCode">
                 </label>
             </ion-list>
             <div class="spacer" style="width: 283px; height: 23px;"></div>
@@ -30,6 +26,8 @@
                 </p>
             </div>
         </form>
-        <a ui-sref="trackingSchedule" class="button button-positive button-block icon-right ion-chevron-right button-calm">I am good</a>
+        <a ui-sref="trackingSchedule"
+        class="button button-royal button-block icon-right ion-chevron-right"
+        ng-click="saveRegisterData()">I am good</a>
     </ion-content>
 </ion-view>

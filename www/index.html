@@ -3,14 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ https://mts1.googleapis.com/ 'unsafe-inline' 'unsafe-eval'">
     <title>Track Tech</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/custom_style.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
     <!-- Google maps api reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsTsJAD-0UL9Vq4Ywfo_nUCBVqVcWiKjc"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -32,7 +35,7 @@
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">
   <div>
-    <ion-nav-bar class="bar-royal">
+    <ion-nav-bar class="bar-royal" align-title="center" >
       <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view></ion-nav-view>
