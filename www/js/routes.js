@@ -7,27 +7,27 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
- .state('menu.home', {
-    url: '/home',
-    views: {
-      'side-menu': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
-      }
-    }
-  })
-
-  .state('menu', {
+   .state('menu', {
     url: '/menu',
     templateUrl: 'templates/menu.html',
     abstract:true
   })
 
-  .state('register', {
-    url: '/register',
-    templateUrl: 'templates/register.html',
-    controller: 'registerCtrl'
-  })
+  .state('menu.home', {
+     url: '/home',
+     views: {
+       'side-menu': {
+         templateUrl: 'templates/home.html',
+         controller: 'homeCtrl'
+       }
+     }
+   })
+
+  // .state('register', {
+  //   url: '/register',
+  //   templateUrl: 'templates/register.html',
+  //   controller: 'registerCtrl'
+  // })
 
   .state('trackingSchedule', {
     url: '/trackingSchedule',
@@ -36,18 +36,29 @@ angular.module('app.routes', [])
   })
 
   .state('trackingYourselfMap', {
-    // cache: false,
+    cache: false,
     url: '/trackingYourselfMap',
     templateUrl: 'templates/trackingYourselfMap.html',
     controller: 'trackingYourselfMapCtrl'
+  })
+
+  .state('trackingRequest', {
+    url: '/trackingRequest',
+    templateUrl: 'templates/trackingRequest.html',
+    controller: 'trackingRequestCtrl'
+  })
+
+  .state('trackingBelovedMap', {
+    cache: false,
+    url: '/trackingBelovedMap',
+    templateUrl: 'templates/trackingBelovedMap.html',
+    controller: 'trackingBelovedMapCtrl'
+  })
+  .state('pathMap', {
+    url: '/pathMap',
+    templateUrl: 'templates/pathMap.html',
+    controller: 'pathMapCtrl'
   });
 
-  // .state('trackingBelovedMap', {
-  //   cache: false,
-  //   url: '/trackingBelovedMap',
-  //   templateUrl: 'templates/trackingBelovedMap.html',
-  //   controller: 'trackingBelovedMapCtrl'
-  // });
-
-$urlRouterProvider.otherwise('/trackingYourselfMap');
+$urlRouterProvider.otherwise('/trackingSchedule');
 });

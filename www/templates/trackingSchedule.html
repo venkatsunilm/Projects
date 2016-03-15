@@ -1,27 +1,28 @@
 <ion-view title="Tracking Schedule">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <ion-content overflow-scroll="true" padding="true" class="has-header background_image">
+    </ion-content>
+    <ion-content overflow-scroll="true" padding="true">
         <form class="list">
-            <h3>Message notifications!!!</h3>
             <div class="spacer" style="width: 283px; height: 23px;"></div>
-            <h4>Emergency Contact Number:</h4>
+            <h4 class="text_color_white">Emergency Contact Number:</h4>
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Phone:</span>
+                    <span class="input-label color_royal"><b>Phone:</b></span>
                     <input type="tel" placeholder="" ng-model="trackSchedule.emergencyContact">
                 </label>
             </ion-list>
             <div class="spacer" style="width: 283px; height: 23px;"></div>
-            <h4>Recurrance interval:</h4>
+            <h4 class="text_color_white">Recurrance interval:</h4>
             <ion-list>
                 <label class="item item-input">
-                    <span class="input-label">Minutes:</span>
+                    <span class="input-label color_royal"><b>Minutes:</b></span>
                     <input type="number" placeholder="" ng-model="trackSchedule.recurrance">
                 </label>
             </ion-list>
             <div class="spacer" style="width: 283px; height: 23px;"></div>
-            <h4>Timeout duration:</h4>
+            <h4 class="text_color_white">Timeout duration:</h4>
             <label class="item item-input">
-                <span class="input-label">Minutes:</span>
+                <span class="input-label color_royal"><b>Minutes:</b></span>
                 <input type="number" placeholder="" ng-model="trackSchedule.totalDuration">
             </label>
             <div class="spacer" style="width: 283px; height: 23px;"></div>

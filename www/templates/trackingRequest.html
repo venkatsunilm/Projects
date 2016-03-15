@@ -4,8 +4,9 @@
         <i class="icon ion-ios-arrow-back"> Back</i>
       </button>
   </ion-nav-buttons>
-
-  <ion-content overflow-scroll="true" padding="true" class="has-header">
+  <ion-content overflow-scroll="true" padding="true" class="has-header background_image">
+  </ion-content>
+  <ion-content overflow-scroll="true" padding="true">
       <form class="list">
           <div class="spacer" style="width: 283px; height: 10px;"></div>
           <ion-list>
@@ -17,10 +18,13 @@
                   <span class="input-label">Last name:</span>
                   <input type="text" placeholder="Enter last name" ng-model="register.lastname">
               </label>
-              <label class="item item-input" name="trakcode">
+              <div class="spacer" style="width: 283px; height: 10px;"></div>
+              <h4 class="text_color_white" data-ng-model="register.trackCode">Track code: <b style="color: #886aea;"><br>{{register.trackCode}}</b></h4>
+
+              <!-- <label class="item item-input" name="trakcode">
                   <span class="input-label">Track code:</span>
-                  <input type="text" placeholder="Enter any 4 digit code for live tracking" ng-model="register.trackCode">
-              </label>
+                  <input class="font_small_fit" type="text" ng-readonly="true" data-ng-model="register.trackCode">
+              </label> -->
           </ion-list>
           <div class="spacer" style="width: 283px; height: 23px;"></div>
           <div>

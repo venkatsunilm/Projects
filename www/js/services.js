@@ -18,12 +18,19 @@ angular.module('app.services', [])
 .factory('getSetFactory', function () {
 
   var address = '', url_location = '';
+  var latLng = '', emergencyContact = '', UIDtrackCode = '';
 
   var getSetFactory = {
     setLocationAddress: setLocationAddress,
     getLocationAddress: getLocationAddress,
     setLocationURL: setLocationURL,
-    getLocationURL: getLocationURL
+    getLocationURL: getLocationURL,
+    setLatLng: setLatLng,
+    getLatLng: getLatLng,
+    setEmergencyContact: setEmergencyContact,
+    getEmergencyContact: getEmergencyContact,
+    setUIDtrackCode: setUIDtrackCode,
+    getUIDtrackCode: getUIDtrackCode
   };
 
   return getSetFactory;
@@ -43,6 +50,30 @@ angular.module('app.services', [])
 
   function getLocationURL(){
     return url_location;
+  }
+
+  function setLatLng(value){
+    latLng = value;
+  }
+
+  function getLatLng(){
+    return latLng;
+  }
+
+  function setEmergencyContact(value){
+    emergencyContact = value;
+  }
+
+  function getEmergencyContact(){
+    return emergencyContact;
+  }
+
+  function setUIDtrackCode(value){
+    UIDtrackCode = value;
+  }
+
+  function getUIDtrackCode(){
+    return UIDtrackCode;
   }
 
 })
@@ -67,7 +98,6 @@ angular.module('app.services', [])
   }
 
   function removeClock(){
-    alert('removed clock timer called .......... '+ clockInstance);
     $interval.cancel(clockInstance);
   }
 
@@ -87,11 +117,12 @@ angular.module('app.services', [])
 
 })
 
-.factory('smsFactory', function ($cordovaSms, clockFactory, getSetFactory, $rootScope, $timeout) {
+.factory('smsFactory', function ($cordovaSms, clockFactory, getSetFactory, $rootScope, $timeout, $ionicPopup) {
 
   var smsFactory = {
     triggerSMS: triggerSMS,
-    stopSMS: stopSMS
+    stopSMS: stopSMS,
+    triggerTrackCode: triggerTrackCode
   };
 
   return smsFactory;
@@ -118,10 +149,68 @@ angular.module('app.services', [])
       });
   }
 
+  function triggerTrackCode(nameTrackCode){
+
+    $cordovaSms
+      .send(nameTrackCode.emergencyContact, nameTrackCode.firstname + ' ' + nameTrackCode.lastname + ' has sent you a track code: '+
+      nameTrackCode.trackCode + '. Please download iTrack from android or iPhone stores for live tracking...')
+      .then(function() {
+          var alertPopup = $ionicPopup.alert({
+           title: 'SMS Notification Status',
+           template: 'Track Code ' + nameTrackCode.trackCode + ' sent'
+        });
+      }, function(error) {
+        alert('Error triggerTrackCode');
+        // An error occurred
+      });
+  }
+
   function callBroadcastToResetAllInController(){
     $rootScope.$broadcast('TimeoutResetAll');
   }
 
+})
+
+.factory('liveTrackFactory', function ($http) {
+
+  // var baseURL = 'http://10.12.200.241:8889/api/User';
+  var baseURL = 'http://testtracktech-001-site1.ctempurl.com/api/User';
+  var service = {
+    post: post,
+    get: get
+  };
+
+  return service;
+
+  ////////////////////////
+
+  function get(trackCode) {
+    var url = baseURL + '/Location/'+trackCode;
+    return $http.get(url);
+  }
+
+  function post(dataObject) {
+    var url = baseURL + '/PollLocation';
+    return $http.post(url, dataObject);
+  }
+})
+
+.factory('RegisterTrackFactory', function ($http) {
+
+  // var baseURL = 'http://10.12.200.241:8889/api/User';
+  var baseURL = 'http://testtracktech-001-site1.ctempurl.com/api/User';
+  var service = {
+    post: post
+  };
+
+  return service;
+
+  ////////////////////////
+
+  function post(dataObject) {
+    var url = baseURL;
+    return $http.post(url, dataObject);
+  }
 })
 
 .service('BlankService', [function(){

@@ -1,24 +1,27 @@
-<ion-view title="Track Tech">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+<ion-view title="Track Tech" >
+    <ion-content overflow-scroll="true" padding="true" class="has-header background_image">
+    </ion-content>
+    <ion-content overflow-scroll="true" padding="true">
         <div class="spacer" style="width: 283px; height: 5px;"></div>
-        <h3><b style="color: #FF0000;"> Alert!!! - </b></h3>
+        <h4 class="text_color_white">You are here: <b style="color: #886aea;"><br>{{info.areaName}}</b></h4>
+        <h4 class="text_color_white">Emergency contact number: <b style="color: #886aea;"><br>{{displayInfo.emergencyContact}}</b></h4>
+        <h4 class="text_color_white">Message notification recurrance interval: <b style="color: #886aea;"><br>{{displayInfo.recurrance}} min</b></h4>
+        <h4 class="text_color_white">Message notification timeout duration: <b style="color: #886aea;"><br>{{displayInfo.totalDuration}} min </b></h4>
+        <div class="spacer" style="width: 283px; height: 40px;"></div>
+
+        <!-- <h3><b style="color: #FF0000;"> Alert!!! - </b></h3>
         <h4>
-            <p>
+            <p class="text_color_white">
                 On push of <b style="color: #886aea;">Send Notifications</b> the present location of the phone is sent via text message to the emergency contact based on the schedules provided in the menu settings.
                 <br>
                 <br>
                 <b>Message charges may apply as per the operator!!!</b>
             </p>
-        </h4>
+        </h4> -->
         <div class="spacer" style="width: 283px; height: 10px;"></div>
-        <button ng-if="notification.status" ng-model="notification.status" class="button button-royal button-block icon-right ion-chevron-right" ng-click="showSendSMSPopup(displayInfo)">Send Notifications!</button>
-        <button ng-if="!notification.status" ng-model="notification.status" class="button button-royal button-block icon-right ion-chevron-right" ng-click="showStopSMSPopup(displayInfo)">Stop Notifications!</button>
+        <button ng-if="notification.status" ng-model="notification.status" class="button button-royal button-block icon-right ion-chevron-right" ng-click="showSendSMSPopup(displayInfo)">Send!</button>
+        <!-- <button ng-if="!notification.status" ng-model="notification.status" class="button-float button button-royal button-block icon-right ion-chevron-right" ng-click="showStopSMSPopup(displayInfo)">Stop!</button> -->
         <form class="list"></form>
-        <h4><b style="color: #FF0000;"><br>Important to note!</b></h4>
-        <h4>You are here: <b style="color: #886aea;"><br>{{info.areaName}}</b></h4>
-        <h4>Emergency contact number: <b style="color: #886aea;"><br>{{displayInfo.emergencyContact}}</b></h4>
-        <h4>Message Notification recurrance interval: <b style="color: #886aea;"><br>{{displayInfo.recurrance}} min</b></h4>
-        <h4>Message Notification timeout duration: <b style="color: #886aea;"><br>{{displayInfo.totalDuration}} min </b></h4>
-        <div class="spacer" style="width: 283px; height: 40px;"></div>
+        <!-- <h4><b style="color: #FF0000;"><br>Important to note!</b></h4> -->
     </ion-content>
 </ion-view>
