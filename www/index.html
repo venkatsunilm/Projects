@@ -6,13 +6,15 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ https://mts1.googleapis.com/ 'unsafe-inline' 'unsafe-eval'">
     <title>Track Tech</title>
 
+    <!-- Include the css -->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/custom_style.css" rel="stylesheet">
+
+    <!-- Include the libraries -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
     <!-- Google maps api reference -->
-    <!--<script src="https://maps.googleapis.com/maps/api/js?&sensor=false"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCsTsJAD-0UL9Vq4Ywfo_nUCBVqVcWiKjc&libraries=geometry"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
@@ -22,7 +24,18 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <script src="js/app.js"></script>
+    <!-- Load the initial module and initiate the run in app.js -->
+    <script src="js/application/appModules.js"></script>
+    <script src="js/application/app.js"></script>
+    <script src="js/application/applicationConfig.js"></script>
+    <script src="js/application/applicationLoadingInterceptor.js"></script>
+
+    <!-- Load all the script files -->
+    <script src="js/trackingSchedule/trackingscheduleCtrl.js"></script>
+    <script src="js/home/homeCtrl.js"></script>
+    <script src="js/trackingRequest/trackingRequestCtrl.js"></script>
+    <script src="js/trackingYourselfMap/trackingYourselfMapCtrl.js"></script>
+    <script src="js/trackingBelovedMap/trackingBelovedMapCtrl.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/routes.js"></script>
     <script src="js/services.js"></script>
@@ -33,7 +46,7 @@
     -->
 
   </head>
-  <body ng-app="app" animation="slide-left-right-ios7">
+  <body ng-app="tracktech" animation="slide-left-right-ios7">
   <div>
     <ion-nav-bar class="bar-royal" align-title="center" >
       <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>

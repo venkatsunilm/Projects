@@ -186,12 +186,12 @@ angular.module('app.services', [])
 
   function get(trackCode) {
     var url = baseURL + '/Location/'+trackCode;
-    return $http.get(url);
+    return $http.get(url, {method:'POST'});
   }
 
   function post(dataObject) {
     var url = baseURL + '/PollLocation';
-    return $http.post(url, dataObject);
+    return $http.post(url, dataObject, {method:'POST'});
   }
 })
 
@@ -209,10 +209,6 @@ angular.module('app.services', [])
 
   function post(dataObject) {
     var url = baseURL;
-    return $http.post(url, dataObject);
+    return $http.post(url, dataObject, {method:'POST'});
   }
-})
-
-.service('BlankService', [function(){
-
-}]);
+});

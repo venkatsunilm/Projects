@@ -5,7 +5,7 @@ angular.module('app.directives', [])
 }])
 
 .directive('map', function() {
-    return {
+  return {
         restrict: 'A',
         link:function(scope, element, attrs){
           var zValue = scope.$eval(attrs.zoom);
